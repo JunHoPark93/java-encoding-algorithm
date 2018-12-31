@@ -2,3 +2,11 @@ urls:
   sample1:
     https://m.post.naver.com/viewer/postView.nhn?volumeNo=17415587&memberNo=1957461&vType=VERTICAL
 
+string:
+  regex:
+    base62:
+      abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+
+encode:
+  base62:
+    62

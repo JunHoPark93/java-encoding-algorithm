@@ -1,5 +1,6 @@
 package com.nexters.javaencodingalgorithm.services;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,14 +19,20 @@ public class MainServiceImplTest {
     @Value("${urls.sample1}")
     String url;
 
+    private String base64matchPattern;
+
+    @Before
+    public void before() {
+        base64matchPattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$";
+    }
+
     @Test
     public void encodeStringWithBase64() {
-        String base64MatchPattern = "^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$";
 
         byte[] targetBytes = url.getBytes();
         Base64.Encoder encoder = Base64.getEncoder();
 
         String s = new String(encoder.encode(targetBytes));
-        assertEquals(true, s.matches(base64MatchPattern));
+        assertEquals(true, s.matches(base64matchPattern));
     }
 }
