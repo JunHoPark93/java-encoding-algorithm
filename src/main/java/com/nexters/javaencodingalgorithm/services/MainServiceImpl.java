@@ -62,6 +62,15 @@ public class MainServiceImpl implements MainService {
      */
     @Override
     public String encodeStringWithSHA256(String targetString) throws NoSuchAlgorithmException {
-        return null;
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        messageDigest.update(targetString.getBytes());
+
+        byte[] bytes = messageDigest.digest();
+        StringBuffer sb = new StringBuffer();
+
+        for(byte b : bytes) {
+            sb.append(Integer.toHexString(b & 0xff));
+        }
+        return sb.toString();
     }
 }
