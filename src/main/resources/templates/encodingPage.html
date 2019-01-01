@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Encoding Page</title>
+    <script>
+
+    </script>
 </head>
 <body>
     <h1>Encoding Page</h1>
     <p th:text="${url}"></p>
+    <form method="post" action="/encode" th:object="${url}">
+        <input type="text" id="longUrl" name="longUrl"/>
+        <input type="submit">
+    </form>
 
 </body>
 </html>
