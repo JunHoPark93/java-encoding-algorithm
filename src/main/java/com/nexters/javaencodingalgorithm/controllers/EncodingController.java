@@ -1,9 +1,11 @@
 package com.nexters.javaencodingalgorithm.controllers;
 
+import com.nexters.javaencodingalgorithm.dto.url.UrlSaveRequestDto;
 import com.nexters.javaencodingalgorithm.services.EncodingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EncodingController {
@@ -14,13 +16,14 @@ public class EncodingController {
         this.encodingService = encodingService;
     }
 
-    @GetMapping("/encode")
+    @GetMapping(value = "/encode")
     public String initEncode(Model model) {
-        // 일단은 inputNumber는 하드코딩
-        String result = encodingService.base62Encode(938212);
+        return "encodingPage";
+    }
 
-        model.addAttribute("url", result);
-
+    @PostMapping(value = "/encode")
+    public String saveUrl(UrlSaveRequestDto dto) {
+        encodingService.save(dto);
         return "encodingPage";
     }
 }
