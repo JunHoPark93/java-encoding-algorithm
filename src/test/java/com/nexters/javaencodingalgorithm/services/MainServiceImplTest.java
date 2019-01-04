@@ -35,4 +35,12 @@ public class MainServiceImplTest {
         String s = new String(encoder.encode(targetBytes));
         assertEquals(true, s.matches(base64matchPattern));
     }
+
+    @Test
+    public void encodeStringWithMD5() {
+    }
+
+    @Test
+    public void encodeStringWithSHA256() {
+    }
 }

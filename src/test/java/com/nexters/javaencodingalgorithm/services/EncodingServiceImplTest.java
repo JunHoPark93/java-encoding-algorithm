@@ -31,7 +31,7 @@ public class EncodingServiceImplTest {
     }
 
     @Test
-    public void base64Encode_해시값_테스트() {
+    public void base62Encode_해시값_테스트() {
         // given
         int n1 = 0;
         int n2 = 3;
